@@ -1,0 +1,287 @@
+/* Modern Mobile-First CSS */
+:root {
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --radius: 0.5rem;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s ease;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  
+  .app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    min-height: 100vh;
+  }
+  
+  /* Header Styles */
+  .app-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .app-title {
+    font-size: 1.75rem;
+    color: var(--primary);
+  }
+  
+  .header-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Button Styles */
+  .icon-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .icon-button:hover {
+    background: var(--background);
+  }
+  
+  .icon-button.primary {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  
+  .icon-button.danger {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+  }
+  
+  .icon-button.danger:hover {
+    background: var(--danger-hover);
+  }
+  
+  /* Workout Grid */
+  .workout-grid {
+    display: grid;
+    /* Keep the original "feature" of using minmax(300px, 1fr) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .day-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .exercise-item {
+    padding: 1rem;
+    background: var(--background);
+    border-radius: calc(var(--radius) - 0.25rem);
+    position: relative;
+    border: 1px solid transparent;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .exercise-item.edit-mode {
+    border-color: var(--primary);
+  }
+  
+  .delete-exercise {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  
+  /* Form Elements */
+  .text-input, .select-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: var(--transition);
+  }
+  
+  .text-input:focus, .select-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  }
+  
+  .input-group {
+    margin-bottom: 1rem;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    place-items: center;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: var(--surface);
+    width: 100%;
+    max-width: 500px;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    position: relative;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .primary-button {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .primary-button:hover {
+    background: var(--primary-hover);
+  }
+  
+  /* Plan Management */
+  .plan-management {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  
+  .plan-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  /* Adjust at smaller screens */
+  @media (max-width: 600px) {
+    html {
+      font-size: 14px;
+    }
+  
+    .header-controls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .icon-button {
+      justify-content: center;
+      width: 100%;
+    }
+  
+    /* Force single-column for narrower layouts */
+    .workout-grid {
+      grid-template-columns: 1fr !important;
+    }
+  
+    .plan-controls {
+      grid-template-columns: 1fr;
+    }
+  
+    .modal-content {
+      padding: 1rem;
+    }
+  }
+  
+  /* Hover support for non-touch devices */
+  @media (hover: hover) {
+    .icon-button:hover {
+      transform: translateY(-1px);
+    }
+  }
+  
+  /* Touch Optimization */
+  button {
+    touch-action: manipulation;
+  }
+  

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Updated viewport for mobile friendliness -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,
+                 maximum-scale=1.0,
+                 user-scalable=no,
+                 viewport-fit=cover">
+  <title>Workout Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Keep Font Awesome up-to-date -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1 class="app-title">Workout Planner</h1>
+      <div class="header-controls">
+        <button id="editModeToggle" class="icon-button">
+          <i class="fas fa-edit"></i>
+          <span>Edit Mode</span>
+        </button>
+        <button id="resetWorkouts" class="icon-button danger">
+          <i class="fas fa-undo"></i>
+          <span>Reset</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="workout-grid"></main>
+
+    <section class="plan-management">
+      <h2 class="section-title">Plan Management</h2>
+      <div class="plan-controls">
+        <input type="text" id="savePlanName" placeholder="Plan name" class="text-input">
+        <button id="savePlan" class="icon-button">
+          <i class="fas fa-save"></i>
+          <span>Save</span>
+        </button>
+        <select id="loadPlan" class="select-input">
+          <option value="">Select plan</option>
+        </select>
+        <button id="deletePlan" class="icon-button danger">
+          <i class="fas fa-trash"></i>
+          <span>Delete</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Edit/Add Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Edit Exercise</h2>
+          <button class="close-modal icon-button">&times;</button>
+        </div>
+        <form id="editForm" class="modal-form">
+          <div class="input-group">
+            <label for="exerciseName">Exercise Name</label>
+            <input type="text" id="exerciseName" required class="text-input">
+          </div>
+          <div class="input-group">
+            <label for="muscleGroup">Muscle Group</label>
+            <input type="text" id="muscleGroup" required class="text-input">
+          </div>
+          <div class="input-group">
+            <label for="repScheme">Rep Scheme</label>
+            <input
+              type="text"
+              id="repScheme"
+              placeholder="8,5,2,2"
+              required
+              inputmode="numeric"
+              class="text-input"
+            >
+          </div>
+          <div class="input-group">
+            <label for="exerciseWeight">Weight (kg)</label>
+            <input
+              type="number"
+              id="exerciseWeight"
+              placeholder="135"
+              inputmode="decimal"
+              class="text-input"
+            >
+          </div>
+          <input type="hidden" id="editDay">
+          <input type="hidden" id="editIndex">
+          <button type="submit" class="primary-button">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
